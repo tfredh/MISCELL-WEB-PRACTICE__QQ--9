@@ -1,0 +1,47 @@
+/* *, *::before, ::after {
+  box-sizing: border-box;
+} */
+
+body {
+  margin: 20px;
+  background-color: gray;
+} /* background-color: lightslategray; */
+
+
+.ttt {
+  display: flex;
+}
+
+.ttt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 123px);
+  grid-template-rows: repeat(3, 123px);
+}
+.ttt-grid button {
+  background-color: white;
+  border: 1px solid blue;
+  font-size: 100px;
+}
+.ttt-grid button:hover {
+  background-color: azure;
+}
+
+.move-history {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.move-history button {
+  background-color: white;
+  height: 41px;
+  width: 180px;
+  border-radius: 10px;
+}
+.move-history button:hover {
+  background-color: aliceblue;
+}
+
+p {
+  background-color: white;
+  color: orange;
+}
