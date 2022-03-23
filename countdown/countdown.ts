@@ -1,31 +1,52 @@
-type MDate = any | Date | "any because there's no type safe option"
-type TimeComponents = { days: number; hours: number; minutes: number; seconds: number; } | any
+type MDate = number;
+type TimeComponents = {
+    days: number;
+    hours: number;
+    minutes: number;
+    seconds: number;
+};
+
 function Whew(): JSX.Element {
-	const dateTarget: MDate = new Date('2022/03/11 14:36:00'), date: MDate = new Date()
-	const [secondsTill, setSecondsTill] 	= useState<number>((dateTarget - date) / 1000)	
+    const dateTarget: MDate = new Date("2022/03/22 20:55:10").getTime();
+    const date: MDate = new Date().getTime();
 
-	const sortedTimes: TimeComponents = {
-		days: secondsTill / 86400,
-		hours: secondsTill % 86400 / 3600,
-		minutes: secondsTill % 86400 % 3600 / 60,
-		seconds: secondsTill % 60
-	}; Object.keys(sortedTimes).forEach(key => sortedTimes[key] = Math.floor(sortedTimes[key])) // remove decimals
-	
-	useEffect((): void => {
-		const countdown: NodeJS.Timer = setInterval((): void => setSecondsTill((sec: number): number => sec - 1), 1000)
-		setTimeout((): void => clearInterval(countdown), secondsTill * 1000)
-	}, [])
+    const [secondsTill, setSecondsTill] = useState<number>(
+        (dateTarget - date) / 1000
+    );
+    const [ended, setEnded] = useState<boolean>(false);
 
-	return <div>
-		<div className='countdown-container'>
-			{
-				Object.keys(sortedTimes).map(
-					(key, ind) => 
-					<div className='outer-time'>
-						{sortedTimes[key]}{ind !== Object.keys(sortedTimes).length - 1 && ':'}
-						<div className='inner-time'>{key}</div>
-					</div>)
-			}
-		</div>
-	</div>
+    const sortedTimes: TimeComponents = {
+        days: secondsTill / 86400,
+        hours: (secondsTill % 86400) / 3600,
+        minutes: ((secondsTill % 86400) % 3600) / 60,
+        seconds: secondsTill % 60,
+    };
+    Object.keys(sortedTimes).forEach(
+        (key) =>
+            (sortedTimes[key as keyof typeof sortedTimes] = Math.floor(
+                sortedTimes[key as keyof typeof sortedTimes]
+            ))
+    ); // remove decimals
+
+    useEffect((): void => {
+        const countdown: NodeJS.Timer = setInterval((): void => {
+            setSecondsTill((sec: number): number => sec - 1);
+        }, 1000);
+        
+        // on timeout change state of 'completed' to true and add text
+        setTimeout((): void => clearInterval(countdown), secondsTill * 1000);
+    }, []);
+    useEffect(() => {
+        if (!Math.floor(secondsTill)) {
+            setEnded((prevStatus) => !prevStatus);
+        }
+    }, [secondsTill]);
+
+    return (
+        <div>
+            <Times times={sortedTimes} />
+            <div>k</div>
+            <div>{ended && "AAAAAAAAAAAAAAAAAA"}</div>
+        </div>
+    );
 }
