@@ -1,26 +1,27 @@
+/* *, *::before, ::after {
+  box-sizing: border-box;
+} */
+
 body {
-  background: darkgray;
-  margin: 20px;
+    margin: 20px;
+    background-color: gray;
+    /* background-color: lightslategray; */
 }
 
 .countdown-container {
-  padding: 35px;
-  text-align: center;
-  width: 600px;
-  height: 200px;
-  background-color: black;
-
-  display: flex;
-  justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(7, 70px);
+    padding: 35px;
+    text-align: center;
+    background-color: black;
 }
 
 .outer-time {
-  /* margin: 0 7px; */
-  font-size: 70px;
-  color: blue;
+    font-size: 70px;
+    color: white;
 }
 
 .inner-time {
-  font-size: 24px;
-  color: white;
+    font-size: 24px;
+    color: white;
 }
