@@ -50,3 +50,27 @@ function Whew(): JSX.Element {
         </div>
     );
 }
+
+function Times({ times }: any): JSX.Element {
+    const [days, hours, minutes, seconds] = Object.values(times);
+
+    return (
+        <div className="countdown-container">
+            <div className="outer-time">{days}</div>
+            <div className="outer-time">:</div>
+            <div className="outer-time">{hours}</div>
+            <div className="outer-time">:</div>
+            <div className="outer-time">{minutes}</div>
+            <div className="outer-time">:</div>
+            <div className="outer-time">{seconds}</div>
+
+            <div className="inner-time">days</div>
+            <div className="inner-time"></div>
+            <div className="inner-time">hours</div>
+            <div className="inner-time"></div>
+            <div className="inner-time">minutes</div>
+            <div className="inner-time"></div>
+            <div className="inner-time">seconds</div>
+        </div>
+    );
+}
