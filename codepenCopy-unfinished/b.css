@@ -1,0 +1,44 @@
+*, *::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 20px;
+  background-color: gray;
+  /* background-color: lightslategray; */
+}
+
+.code-back {
+  display: grid;
+  grid-template-columns: repeat(3, 33%);
+  justify-content: space-between;
+  background-color: black;
+
+  padding: 10px;
+}
+
+.code-space {
+  background-color: antiquewhite;
+
+  padding: 10px;
+}
+.code-space input {
+  width: 100%;
+  height: 400px;
+  background-color: lightcyan;
+}
+
+.code-space-header {
+  display: flex;
+  justify-content: space-between;
+}
+.code-space-header button {
+  all: unset;
+}
+
+.code-display {
+  background-color: white;
+  height: 400px;
+  width: 100%;
+  
+}
