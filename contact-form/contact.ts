@@ -17,16 +17,10 @@ function Ting(): React.ReactElement {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
-
-    const recaptchaKey = "6Lfa4zsfAAAAABllS8eL7wRshUL1TomNayfsWrJ0";
-    const recaptchaRef = useRef<any>();
-
     const [submitted, setSubmitted] = useState(false);
     const [submitFailed, setSubmitFailed] = useState(false);
 
     const submitHandler = () => {
-        console.log(recaptchaRef)
-
         if (![name, email, message].every((val) => val)) {
             setSubmitFailed(true);
             return;
