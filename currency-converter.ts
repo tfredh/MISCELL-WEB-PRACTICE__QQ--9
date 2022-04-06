@@ -206,7 +206,7 @@ function CurrencyRow({
                 }
             >
                 {state.currencies?.map((currency) => (
-                    // isn't the 'value' prop below useless?
+                    // pretty sure the value prop below is useless
                     <option key={currency} value={currency}>
                         {currency}
                     </option>
