@@ -1,0 +1,33 @@
+body {
+    margin: 0px;
+    background-color: gray;
+    color: white;
+
+    background-image: url("./images/nattu-adnan.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.correct {
+    background-color: greenyellow;
+}
+.wrong {
+    background-color: red;
+}
+
+.card-container {
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+    width: 550px;
+    text-align: center;
+    color: black;
+
+    font-size: 24px;
+}
+
+.asdalsdkj {
+    background-color: linear-gradient(90deg, #56FFA4, #59BC86);
+    background-color: linear-gradient(90deg, #FF5656, #C16868);
+    background-color: linear-gradient(90deg, #56ccff, #6eafb4);
+}
