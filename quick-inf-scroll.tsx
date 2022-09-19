@@ -31,24 +31,6 @@ export default function Home({}: HomeProps): JSX.Element {
 
     const fullObserver = useRef<IntersectionObserver | null>(null);
 
-    // create observer
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        console.log("inting");
-                    }
-                });
-            },
-            {
-                threshold: 0.9,
-            }
-        );
-
-        fullObserver.current = observer;
-    }, []);
-
     const lastWordRefCallback = (node: HTMLDivElement) => {
         if (node == null || sleeping) return;
         if (fullObserver.current) fullObserver.current.disconnect();
